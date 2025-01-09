@@ -9,6 +9,7 @@ class HashMap
     end
 
     def hash(key)
+        key = key.to_s
         hash_code = 0
         prime_number = 31
         key.each_char { |char| hash_code = prime_number * hash_code + char.ord }
@@ -76,5 +77,27 @@ class HashMap
         return nil
     end
 
+    def remove(key)
+        index = hash(key) % @capacity
+        current = @buckets[index]
 
+        if current == nil
+            return
+        end
+
+        if current.key == key
+            @buckets[index] = current.next
+            @size -= 1
+            return
+        end
+
+        while current.next != nil
+            if current.next.key == key
+                current.next = current.next.next
+                @size -= 1
+                return
+            end
+            current = current.next
+        end
+    end
 end
