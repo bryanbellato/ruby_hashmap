@@ -100,4 +100,8 @@ class HashMap
             current = current.next
         end
     end
+
+    def has(key)
+        return get(key) != nil
+    end
 end

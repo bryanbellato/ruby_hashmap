@@ -22,9 +22,17 @@ puts(hashmap.get('madero'))
 puts ''
 
 puts('Testing a key removal')
-puts(hashmap.remove('madero')) 
+(hashmap.remove('madero')) 
 puts(hashmap.get('parilla'))
 puts(hashmap.get('tacos'))
 puts "The madero key is removed. #{hashmap.get('madero')}"
 
 puts ''
+
+puts('Testing a method for searching and returning a boolean value for a specific key')
+puts "Do we have the parilla key? #{hashmap.has('parilla')}"
+(hashmap.remove('parilla')) 
+puts "Do we have the parilla key? #{hashmap.has('parilla')}"
+
+puts ''
+
