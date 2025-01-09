@@ -62,4 +62,19 @@ class HashMap
         current.next = new_node
         @size += 1
     end
+
+    def get(key)
+        index = hash(key) % @capacity
+        current = @buckets[index]
+        while current != nil
+            if current.key == key
+                return current.value
+            end
+            current = current.next
+        end
+
+        return nil
+    end
+
+
 end
