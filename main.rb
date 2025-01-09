@@ -1,5 +1,9 @@
 require_relative 'HashMap'
 
-testing = HashMap.new
+hashmap = HashMap.new
 
-puts(testing.hash('teste'))
+puts('Testing the hashing')
+puts(hashmap.hash('blablabla'))
+
+puts('Testing the setting')
+hashmap.set('parilla', 2)
