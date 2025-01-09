@@ -104,4 +104,58 @@ class HashMap
     def has(key)
         return get(key) != nil
     end
+
+    def length
+        return @size
+    end
+
+    def clear
+        @buckets = Array.new(@capacity)
+        @size = 0
+    end
+
+    def keys
+        result = []
+    
+        @buckets.each do |bucket|
+            current = bucket
+            while current != nil
+                result.append(current.key)
+                current = current.next
+            end
+        end
+    
+        result
+    end
+
+    def values
+        result = []
+    
+        @buckets.each do |bucket|
+            current = bucket
+            while current != nil
+                result.append(current.value)
+                current = current.next
+            end
+        end
+    
+        result
+    end
+
+    def entries
+        result = []
+
+        @buckets.each do |bucket|
+            current = bucket
+            while current != nil
+                pair = [current.key, current.value]
+                result.append(pair)
+                current = current.next
+            end
+        end
+    
+        result
+    end
+
+
 end
